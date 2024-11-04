@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTENT Request Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="http://192.168.1.1/shares">Your Content</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="./admin/index2.php">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>CONTENT Request Form</h2>
+        <form id="movie-request-form" action="submit_process.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="movie-name">Content Name/link: <span style="color: #e50914;">*</span></label>
+                <input type="text" id="movie-name" name="movie_name" required>
+                <p class="instructions">Enter the name of your content</p>
+            </div>
+            <div class="form-group-half">
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <input type="text" id="year" name="year" pattern="\d{4}" title="Enter a valid year (e.g., 2023)">
+                    <p class="instructions">Enter the release year (optional). Use a 4-digit format (e.g., 2023).</p>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type <span style="color: #e50914;">*</span></label>
+                    <select id="type" name="type" required>
+                        <option value="Apps">Apps</option>
+                        <option value="18+">18+(Adult)</option>
+                        <option value="Games">Games</option>
+                        <option value="Book">Books</option>
+                        <option value="Movie">Movie</option>
+                        <option value="Series">Series</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Reels">Reels</option>
+                        <option value="Natok">Natok</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <p class="instructions">Choose the type of content you're requesting.</p>
+                </div>
+            </div>
+            <div class="form-group-half">
+                <div class="form-group">
+                    <label for="language">Language</label>
+                    <select id="language" name="language">
+                        <option value="English">English</option>
+                        <option value="Bangla">Bangla</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Turkish">Turkish</option>
+                        <option value="Korean">Korean</option>
+                        <option value="South Indian">South Indian</option>
+                        <option value="Dual Audio">Dual Audio</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <p class="instructions">Select the language (Default: English)</p>
+                </div>
+                <div class="form-group">
+                    <label for="quality">Quality</label>
+                    <select id="quality" name="quality">
+                        <option value="1080">1080p</option>
+                        <option value="720">720p</option>
+                        <option value="480">480p</option>
+                        <option value="360">360p</option>
+                        <option value="144">144p</option>
+                    </select>
+                    <p class="instructions">Choose your preferred video quality.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image">Upload a poster or Screenshot of your content (optional)</label>
+                <input type="file" id="image" name="image" accept="image/jpeg, image/png">
+                <p class="instructions">Upload a JPEG or PNG image. Max size: 5MB.</p>
+            </div>
+            <div class="form-group">
+                <button type="submit">SUBMIT</button>
+            </div>
+            <div class="instructions">
+                Please fill out all required fields. Requests will be processed within 2-3 hours.
+            </div>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
